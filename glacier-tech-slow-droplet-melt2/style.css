@@ -1,0 +1,131 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#020a14;--bg2:#041321;--panel:#061a2b;--cyan:#08baff;--blue:#0878ff;
+  --text:#f4f8ff;--muted:#a8c4e3;--line:rgba(126,190,232,.16);--max:1210px;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 56px),var(--max));margin:auto}
+.site-header{height:72px;position:fixed;inset:0 0 auto;z-index:50;background:rgba(1,7,14,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{
+  position: relative;
+  height: 3rem;
+  width: 4rem;
+  position: relative;
+  top: -44px;
+}
+
+.nav-wrap{height:100%;width:min(calc(100% - 56px),var(--max));margin:auto;display:flex;align-items:center;gap:34px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:3px;font-size:20px;white-space:nowrap}
+.brand b{color:var(--cyan)}
+.brand-mark{width:54px;height:54px;display:grid;place-items:center}
+.brand-mark svg{width:54px;height:54px;filter:drop-shadow(0 0 10px rgba(0,180,255,.45))}
+.nav{margin-left:auto;display:flex;align-items:center;gap:43px;height:100%;font-size:13px}
+.nav a{height:100%;display:flex;align-items:center;position:relative;color:#eaf3ff;transition:.25s}
+.nav a:hover,.nav a.active{color:#11bfff}
+.nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.nav-cta{margin-left:22px;border:1px solid #00aaff;border-radius:28px;padding:12px 23px;color:#08baff;font-size:13px;box-shadow:0 0 20px rgba(0,160,255,.12);transition:.25s}
+.nav-cta:hover{background:#08baff;color:#00101e;box-shadow:0 0 30px rgba(0,180,255,.35)}
+.nav-cta span,.btn span{margin-left:12px}
+.menu-toggle{display:none;background:none;border:0;padding:8px}.menu-toggle span{display:block;width:23px;height:2px;background:#dff7ff;margin:5px}
+
+.hero{min-height:665px;height:min(70vw,665px);position:relative;isolation:isolate;overflow:hidden;background:#010812}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(1,8,18,.16),rgba(1,8,18,0) 55%),url("justWebsiteBG.png");background-size:cover;background-position:center center;z-index:-3;transform:scale(1.01)}
+.hero:after{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(1,8,18,.22) 0%,rgba(1,8,18,0) 58%),linear-gradient(0deg,rgba(1,8,18,.1),transparent 38%)}
+.hero-glow{position:absolute;width:650px;height:360px;right:18%;top:115px;background:radial-gradient(ellipse,rgba(0,168,255,.14),transparent 68%);filter:blur(20px);z-index:-1}
+.hero-content{padding-top:181px}
+.eyebrow,.section-label{color:#12c5ff;font-size:12px;letter-spacing:5px;font-weight:600;margin:0 0 12px}
+.eyebrow span{color:#b7eaff;margin:0 3px}
+h1{font-size:60px;line-height:.98;letter-spacing:1px;margin:0 0 17px;font-weight:800;text-shadow:0 8px 40px rgba(0,0,0,.25)}
+h1 em,h2 em{font-style:normal;color:#10aefe;text-shadow:0 0 24px rgba(0,173,255,.22)}
+.hero-copy{font-size:19px;line-height:1.55;color:#bcd6f1;margin:0 0 28px}
+.hero-actions{display:flex;gap:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 30px;border-radius:26px;font-size:13px;font-weight:600;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(120deg,#079eff,#0876ed);box-shadow:0 8px 25px rgba(0,142,255,.3)}
+.btn-primary:hover{box-shadow:0 12px 34px rgba(0,157,255,.42)}
+.btn-outline{border:1px solid #078fe0;color:#10baff;background:rgba(0,12,24,.2)}
+.btn-outline:hover{background:rgba(0,160,255,.1)}
+.water-shine{position:absolute;left:0;right:0;bottom:0;height:105px;background:linear-gradient(180deg,transparent,rgba(0,9,18,.45));z-index:-1}
+.scroll-cue{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:4px;color:#8ca9c6;opacity:.75}
+.scroll-cue span{display:inline-block;width:5px;height:5px;border-radius:50%;background:#11bfff;box-shadow:0 0 12px #11bfff;margin-right:8px;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+
+.feature-strip{background:rgba(1,13,24,.94);border-top:1px solid rgba(42,163,221,.16);border-bottom:1px solid rgba(42,163,221,.13)}
+.features{display:grid;grid-template-columns:repeat(4,1fr)}
+.feature{min-height:108px;display:flex;align-items:center;gap:22px;padding:18px 24px;position:relative}
+.feature:not(:last-child):after{content:"";position:absolute;right:0;top:24px;bottom:24px;width:1px;background:var(--line)}
+.feature-icon{font-size:32px;line-height:1;color:#0dbbff;width:42px;text-align:center;text-shadow:0 0 18px rgba(0,178,255,.3);font-weight:400}
+.device-icon{font-size:42px}.shield-icon{font-size:35px}
+.feature h3{font-size:14px;margin:0 0 8px}.feature p{font-size:11px;line-height:1.55;color:#a9c4e1;margin:0}
+
+.section{padding:80px 0}.about{background:radial-gradient(circle at 65% 30%,rgba(0,96,160,.09),transparent 35%),#020a14}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.section-label{font-size:11px;margin-bottom:11px}
+.about h2,.section-heading h2,.contact h2{font-size:34px;line-height:1.08;margin:0 0 17px;letter-spacing:.2px}
+.about-copy>p:not(.section-label){color:#a9c4df;line-height:1.7;font-size:14px;max-width:490px}
+.stats{display:flex;gap:40px;margin-top:27px}.stats div{display:grid;gap:3px}.stats strong{font-size:22px}.stats span{font-size:10px;color:#7898b7;letter-spacing:1px;text-transform:uppercase}
+.about-card{height:290px;border:1px solid rgba(26,173,255,.22);border-radius:10px;overflow:hidden;position:relative;background:#06192a;box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.mountain-art{position:absolute;inset:0;background-image:linear-gradient(0deg,rgba(0,7,15,.42),transparent 70%),url("justWebsiteBG.png");background-size:cover;background-position:70% 43%;filter:saturate(.9) brightness(.82)}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;border:1px solid white;background:rgba(0,17,30,.35);color:#fff;font-size:22px;padding-left:5px;backdrop-filter:blur(5px)}
+.card-caption{position:absolute;left:22px;bottom:17px;font-size:9px;letter-spacing:3px;color:#b7d5ef}
+
+.portfolio{background:#010913}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}.section-heading p{max-width:420px;color:#8eaac5;font-size:13px;line-height:1.6;margin:0}
+.project-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}.project{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#061523}.project:first-child{grid-row:span 2}.project-art{height:220px;background-size:cover;background-position:center}.project-large .project-art{height:455px}.art-one{background-image:linear-gradient(135deg,rgba(0,160,255,.18),rgba(0,0,0,.25)),url("justWebsiteBG.png");background-position:center}.art-two{background:radial-gradient(circle at 70% 30%,#0a9fdd,transparent 35%),linear-gradient(135deg,#0b2941,#020912)}.art-three{background:linear-gradient(135deg,#0a314b,#02101e)}
+.project>div:last-child{padding:17px 19px}.project span{font-size:8px;letter-spacing:2px;color:#0abaff}.project h3{margin:7px 0 2px;font-size:16px}
+
+.contact{padding-top:30px}.contact-box{border:1px solid rgba(15,177,255,.2);border-radius:12px;padding:55px 65px;display:flex;align-items:center;justify-content:space-between;background:radial-gradient(circle at 70% 30%,rgba(0,150,255,.11),transparent 35%),#061321}
+.contact h2{font-size:40px;margin:0}.contact .section-label{margin-bottom:9px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#6784a1;font-size:10px}.footer-inner{display:flex;justify-content:space-between}
+
+@media(max-width:900px){
+  .container,.nav-wrap{width:min(calc(100% - 36px),var(--max))}
+  .nav{position:absolute;top:71px;left:18px;right:18px;height:auto;display:none;flex-direction:column;gap:0;background:rgba(2,12,23,.97);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+  .nav.open{display:flex}.nav a{height:48px;padding:0 15px}.nav a.active:after{display:none}
+  .nav-cta{margin-left:auto}.menu-toggle{display:block;order:4}.brand{font-size:17px}.brand-mark{width:46px;height:46px}.brand-mark svg{width:46px;height:46px}
+  .hero{height:620px}.hero-content{padding-top:165px}h1{font-size:48px}.features{grid-template-columns:1fr 1fr}.feature:nth-child(2):after{display:none}
+  .about-grid{grid-template-columns:1fr;gap:35px}.project-grid{grid-template-columns:1fr}.project:first-child{grid-row:auto}.project-large .project-art{height:330px}
+}
+@media(max-width:600px){
+  .site-header{height:64px}.nav-wrap{width:calc(100% - 28px)}.brand{letter-spacing:2px;font-size:14px}.brand-mark{width:39px;height:39px}.brand-mark svg{width:39px;height:39px}
+  .nav{top:63px;left:10px;right:10px}.nav-cta{padding:9px 14px;font-size:11px}.menu-toggle{padding:4px}
+  .hero{min-height:650px;height:650px}.hero-bg{background-position:57% center}.hero-content{padding-top:145px}.eyebrow{font-size:9px;letter-spacing:3.5px}
+  h1{font-size:39px}.hero-copy{font-size:16px}.desktop-only{display:none}.hero-actions{gap:10px;flex-wrap:wrap}.btn{padding:0 20px;min-height:44px}
+  .features{grid-template-columns:1fr}.feature{min-height:88px;padding:17px 5px}.feature:not(:last-child):after{left:0;right:0;top:auto;bottom:0;height:1px;width:auto}.feature-icon{font-size:28px}
+  .section{padding:60px 0}.about h2,.section-heading h2{font-size:30px}.about-card{height:235px}.stats{gap:23px}
+  .section-heading{display:block}.section-heading p{margin-top:12px}.project-large .project-art{height:260px}.project-art{height:180px}
+  .contact-box{padding:35px 24px;display:block}.contact h2{font-size:32px;margin-bottom:25px}.footer-inner{display:block;line-height:2}
+}
+
+
+/* =========================================================
+   REALISTIC MELTING GLACIER ANIMATION
+   The original supplied glacier image remains the source.
+   ========================================================= */
+
+.hero-bg{
+  will-change:transform;
+}
+
+.melt-canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  z-index:-2;
+  pointer-events:none;
+  mix-blend-mode:normal;
+  opacity:1;
+}
+
+.hero:after{
+  z-index:-1;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .melt-canvas{
+    display:none;
+  }
+}
